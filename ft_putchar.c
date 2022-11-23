@@ -6,9 +6,11 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 23:06:44 by yochakib          #+#    #+#             */
-/*   Updated: 2022/11/21 23:09:54 by yochakib         ###   ########.fr       */
+/*   Updated: 2022/11/23 21:49:18 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_printf.h"
 
 int	ft_putchar(char c)
 {

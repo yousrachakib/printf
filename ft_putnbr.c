@@ -6,11 +6,13 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 23:59:24 by yochakib          #+#    #+#             */
-/*   Updated: 2022/11/22 00:06:27 by yochakib         ###   ########.fr       */
+/*   Updated: 2022/11/23 21:49:22 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_putnbr(int n)
+#include "ft_printf.h"
+
+int	ft_putnbr(int n)
 {
 	int	i;
 
@@ -36,7 +38,7 @@ int ft_putnbr(int n)
 	return (i);
 }
 
-int	ft_putnbru(unsigned int num)
+int	put_unsigned_nbr(unsigned int num)
 {
 	unsigned int	rest;
 	int				i;
@@ -45,7 +47,7 @@ int	ft_putnbru(unsigned int num)
 	rest = num % 10 + '0';
 	num /= 10;
 	if (num != 0)
-		i += ft_putnbru(num);
+		i += put_unsigned_nbr(num);
 	i += ft_putchar(rest);
 	return (i);
 }

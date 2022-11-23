@@ -6,11 +6,11 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 23:16:16 by yochakib          #+#    #+#             */
-/*   Updated: 2022/11/21 23:27:58 by yochakib         ###   ########.fr       */
+/*   Updated: 2022/11/23 21:49:25 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "ft_printf.h"
 
 int	ft_putstr(char *s)
 {
@@ -26,8 +26,3 @@ int	ft_putstr(char *s)
 		write(1, &s[i++], 1);
 	return (i);
 }
-// int main()
-// {
-// 	char *s = NULL;
-// 	ft_putstr(s);
-// }
