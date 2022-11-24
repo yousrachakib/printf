@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 14:42:12 by yochakib          #+#    #+#             */
-/*   Updated: 2022/11/24 20:16:45 by yochakib         ###   ########.fr       */
+/*   Updated: 2022/11/24 20:24:13 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,17 @@ int	detect_format(char format, va_list	num_args)
 		counter += ft_putchar(format);
 	return (counter);
 }
-int	ft_printf(const char *format, ...)
-{
 
-	int num_args;
-	va_list args;
+int	ft_printf(const	char *format, ...)
+{
+	int			num_args;
+	va_list		args;
+
 	va_start(args, format);
-	
 	num_args = 0;
-	while(*format != '\0')
+	while (*format != '\0')
 	{
-		if(*format == '%')
+		if (*format == '%')
 		{
 			format++;
 			num_args += detect_format(*format, args);
