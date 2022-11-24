@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 14:42:12 by yochakib          #+#    #+#             */
-/*   Updated: 2022/11/23 21:49:11 by yochakib         ###   ########.fr       */
+/*   Updated: 2022/11/24 19:34:27 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,34 +32,36 @@ int	detect_format(char format, va_list	num_args)
 	else if (format == 'X')
 		counter += ft_hexxa(va_arg(num_args, unsigned long int));
 	else if (format == '%')
-		counter += ft_putchar(va_arg(num_args, int));
+		counter += ft_putchar(format);
+	else
+		counter += ft_putchar(format);
 	return (counter);
 }
-int	ft_printf(const	char* placeholders, ...)
+int	ft_printf(const char *format, ...)
 {
-	int		num_args;
-	va_list	args;
 
+	int num_args;
+	va_list args;
+	va_start(args, format);
+	
 	num_args = 0;
-	va_start(args, placeholders);
-	while (*placeholders)
+	while(*format != '\0')
 	{
-		if (*placeholders == '%')
-		{	
-			placeholders++;
-			if (*placeholders == 'c' || *placeholders == 's' \
-				|| *placeholders == 'p' || *placeholders == 'd' \
-				|| *placeholders == 'i' || *placeholders == 'u' \
-				|| *placeholders == 'x' || *placeholders == 'X' \
-				|| *placeholders == '%' )
-					num_args += detect_format(*placeholders, args);
-			else
-					num_args += detect_format(*placeholders, args);
+		if(*format == '%')
+		{
+			format++;
+			num_args += detect_format(*format, args);
 		}
-		else if (*placeholders != '%')
-			num_args += ft_putchar(*placeholders);
-		placeholders++;
+		else
+			num_args += ft_putchar(*format);
+		if (*format == '\0')
+			break ;
+		format++;
 	}
-	va_end(args);
 	return (num_args);
+}
+int main()
+{
+	ft_printf("%%%");
+	printf("%%%");
 }
