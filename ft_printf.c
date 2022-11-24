@@ -6,7 +6,7 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 14:42:12 by yochakib          #+#    #+#             */
-/*   Updated: 2022/11/24 19:34:27 by yochakib         ###   ########.fr       */
+/*   Updated: 2022/11/24 20:16:45 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,4 @@ int	ft_printf(const char *format, ...)
 		format++;
 	}
 	return (num_args);
-}
-int main()
-{
-	ft_printf("%%%");
-	printf("%%%");
 }
