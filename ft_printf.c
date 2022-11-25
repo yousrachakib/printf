@@ -6,11 +6,26 @@
 /*   By: yochakib <yochakib@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 14:42:12 by yochakib          #+#    #+#             */
-/*   Updated: 2022/11/24 20:24:13 by yochakib         ###   ########.fr       */
+/*   Updated: 2022/11/25 20:14:03 by yochakib         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+
+int	ft_check(char const c)
+{
+	char	*str;
+
+	str = "cspdiuxX%";
+	while (*str)
+	{
+		if (c == *str)
+			return (1);
+		str++;
+	}
+	return (0);
+}
 
 int	detect_format(char format, va_list	num_args)
 {
@@ -28,9 +43,9 @@ int	detect_format(char format, va_list	num_args)
 	else if (format == 'u')
 		counter += put_unsigned_nbr(va_arg(num_args, unsigned int));
 	else if (format == 'x')
-		counter += ft_hexa(va_arg(num_args, unsigned long int));
+		counter += ft_hexa(va_arg(num_args, unsigned int));
 	else if (format == 'X')
-		counter += ft_hexxa(va_arg(num_args, unsigned long int));
+		counter += ft_hexxa(va_arg(num_args, unsigned int));
 	else if (format == '%')
 		counter += ft_putchar(format);
 	else
